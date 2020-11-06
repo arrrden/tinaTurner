@@ -1,5 +1,8 @@
 const theme = require("./content/settings/theme.json")
 const site = require("./content/settings/site.json")
+const path = require('path')
+
+const REPO_PATH = path.join(process.cwd(), '../..')
 
 module.exports = {
   plugins: [
@@ -23,7 +26,21 @@ module.exports = {
             },
           },
         },
-        plugins: ["gatsby-tinacms-git", "gatsby-tinacms-remark"],
+        plugins: [
+          {
+          resolve: `gatsby-tinacms-git`,
+          options: {
+            pathToRepo: REPO_PATH,
+            pathToContent: '/',
+            defaultCommitMessage: 'Edited with a blase attitude',
+            defaultCommitName: 'TinaTurnerCMS',
+            defaultCommitEmail: 'j.gaddas@outlook.com',
+            pushOnCommit: false,
+            sshKey: process.env.SSH_KEY,
+          }
+        }, 
+        "gatsby-tinacms-remark"
+      ],
       },
     },
     {
