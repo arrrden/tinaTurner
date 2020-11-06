@@ -30,7 +30,7 @@ module.exports = {
           {
           resolve: `gatsby-tinacms-git`,
           options: {
-            pathToRepo: REPO_PATH,
+            // pathToRepo: REPO_PATH,
             pathToContent: '/',
             defaultCommitMessage: 'Edited with a blase attitude',
             defaultCommitName: 'TinaTurnerCMS',
